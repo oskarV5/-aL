@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>One-Hand Bandit</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <script>
+        let ile = 0;
+        let ileWygranych = 0;
+        let Honey = 1000
+
+
+        function start() {
+            document.getElementById("pole_1").innerHTML = "<img src='1.png'>"
+            document.getElementById("pole_2").innerHTML = "<img src='2.png'>"
+            document.getElementById("pole_3").innerHTML = "<img src='3.png'>"
+        }
+
+        function spin() {
+            let x1 = Math.random();
+            x1 = Math.floor(x1 * 3 + 1);
+
+            let x2 = Math.random();
+            x2 = Math.floor(x2 * 3 + 1);
+
+            let x3 = Math.random();
+            x3 = Math.floor(x3 * 3 + 1);
+
+            znaki1 = "<img src=\"" + x1 + ".png\">";
+            document.getElementById("pole_1").innerHTML = znaki1;
+
+            znaki2 = "<img src=\"" + x2 + ".png\">";
+            document.getElementById("pole_2").innerHTML = znaki2;
+
+            znaki3 = "<img src=\"" + x3 + ".png\">";
+            document.getElementById("pole_3").innerHTML = znaki3;
+            ile++;
+
+            if ((x1 == x2) && (x1 == x3)) {
+                document.getElementById("wynik").innerHTML = "<h2>wygrałeś</h2>";
+                ileWygranych++;
+
+            } else {
+                document.getElementById("wynik").innerHTML = "<h2>Graj dalej</h2>";
+            }
+            document.getElementById("PlayMatch").innerHTML = "<h3> Gier: " + ile + "<br>wynik: " + ileWygranych + "</h3>";
+
+        }
+
+    </script>
+</head>
+
+<body onload="start()">
+    <div id="ramka">
+        <h1>Jedno-ręki bandyta</h1>
+        <div id="pole_1"></div>
+
+        <div id="pole_2"></div>
+
+        <div id="pole_3"></div>
+        <br><br>
+
+        <div id="button"><button onclick="spin()">STRAĆ-PIENIĄDZE</button></div>
+        <br>
+        <br>
+        <div id="wynik"></div>
+        <br>
+        <div id="PlayMatch"></div>
+
+
+    </div>
+
+
+</body>
+
+</html>
